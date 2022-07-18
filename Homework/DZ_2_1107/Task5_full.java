@@ -1,3 +1,5 @@
+package DZ_2_1107;
+
 import java.util.Scanner;
 
 public class Task5_full {

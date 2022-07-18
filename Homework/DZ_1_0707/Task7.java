@@ -1,3 +1,5 @@
+package DZ_1_0707;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
