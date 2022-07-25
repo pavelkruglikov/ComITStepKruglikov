@@ -10,7 +10,7 @@ public class Task7 {
         int num2 = getInt();
         char operation = getOperation();
         int result = calc(num1,num2,operation);
-        System.out.println("Результат операции: "+result);
+        System.out.println("Результаты операции: "+result);
     }
 
     public static int getInt(){
