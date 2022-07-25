@@ -22,7 +22,7 @@ public class Task5 {
                     System.out.println("Введенное число должно больше 3. Повторите ввод:");
                 }
             } else {
-                System.out.println("Вы ввели не число. Повторите ввод:");
+                System.out.println("Не введено число. Повторить ввод:");
                 sc.next();
             }
         }
