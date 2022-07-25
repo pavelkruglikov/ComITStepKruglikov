@@ -3,13 +3,18 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task5 {
+    public void showArray (int[]array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
-
+        Task5 arrayMethod = new Task5();
+        Task5 arrayMethod2 = new Task5();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите размер массива:");
-
+        System.out.print("Введите размер массива: ");
         int n = 0;
-
         while (n <= 3) {
             if(sc.hasNextInt()){
                 n = sc.nextInt();
@@ -21,25 +26,24 @@ public class Task5 {
                 sc.next();
             }
         }
-        int [] mas1 = new int[n];
-        int evenNums = 0;
+        int [] array1 = new int[n];
+        int evenCount = 0;
 
         for (int i = 0; i < n; i++) {
-            mas1[i] = (int)(Math.random()*(n+1));
-            if(mas1[i]%2 == 0){
-                evenNums++;
+            array1[i] = (int)(Math.random()*(n+1));
+            if(array1[i]%2 == 0){
+                evenCount++;
             }
         }
-
-        System.out.println(Arrays.toString(mas1));
-        int [] mas2 = new int[evenNums];
+        arrayMethod.showArray(array1);
+        int [] array2 = new int[evenCount];
         int index = 0;
         for (int i = 0; i < n; i++) {
-            if(mas1[i]%2 == 0){
-                mas2[index] = mas1[i];
+            if(array1[i]%2 == 0){
+                array2[index] = array1[i];
                 index++;
             }
         }
-        System.out.println(Arrays.toString(mas2));
+        arrayMethod.showArray(array2);
     }
 }
