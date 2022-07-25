@@ -14,7 +14,7 @@ public class Task5 {
             if(sc.hasNextInt()){
                 n = sc.nextInt();
                 if(n <= 3){
-                    System.out.println("Введенное число должно быть больше 3. Повторите ввод:");
+                    System.out.println("Введенное число должно больше 3. Повторите ввод:");
                 }
             } else {
                 System.out.println("Вы ввели не число. Повторите ввод:");
