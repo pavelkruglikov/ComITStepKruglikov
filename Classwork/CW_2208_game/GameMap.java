@@ -41,7 +41,7 @@ public class GameMap {
     }
 
     public void moveDown() {
-        if (map[x + 1][y] == 'S' || x + 1 > 9) {
+        if (x + 1 > 9 || map[x + 1][y] == 'S') {
             System.out.println("Нет хода");
         } else {
             map[x + 1][y] = 'P';
