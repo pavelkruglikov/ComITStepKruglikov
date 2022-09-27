@@ -11,7 +11,7 @@ public class Main {
                 new City(
                         "Moscow","Russia",180000000
                 ), "Russia","Europe"
-        )
+        );
 
     }
 }
