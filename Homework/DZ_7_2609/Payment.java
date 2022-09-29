@@ -18,10 +18,14 @@ public abstract class Payment {
 
     public abstract double calculateOfPaymentWithoutTax(int payment);
 
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+
     @Override
     public String toString() {
         return paymentTypeName +
-                ", Налог общий = " + (nalog + extraChildrenTax) +
-                ", из них детский коэффициент = " + extraChildrenTax;
+                ANSI_RED + " Налог общий = " + (nalog + extraChildrenTax) + ANSI_RESET +
+                ANSI_PURPLE + " в т.ч детские = " + extraChildrenTax + ANSI_RESET;
     }
 }

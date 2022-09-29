@@ -13,26 +13,27 @@ public class Employee {
     int countOfChildren;
     boolean offshoreMarker;
 
-    public void setAward() {
+    public void getAward() {
         if (offshoreMarker) {
             this.award = 0;
-        } else if (countOfHours > 200 || countOfWorkingDay > 9) {
-            this.award = 500;
-        }
+        } else if (countOfHours > 200 | countOfWorkingDay > 9) {
+            this.award = 1000;
+        } else this.award = 0;
     }
+
 
     public void getPaymentMinusTax() {
         if (offshoreMarker) {
             if (countOfWorkingDay > 0) {
-                this.totalPayment = typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfWorkingDay);
+                this.totalPayment = award + (typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfWorkingDay));
             } else {
-                totalPayment = typeOfPayment.calculateOfPaymentWithoutTax(payment);
+                totalPayment = award + typeOfPayment.calculateOfPaymentWithoutTax(payment);
             }
         } else {
             if (countOfWorkingDay > 0) {
-                this.totalPayment = typeOfPayment.calculateOfPayment(payment * countOfWorkingDay);
+                this.totalPayment = award + typeOfPayment.calculateOfPayment(payment * countOfWorkingDay);
             } else {
-                totalPayment = typeOfPayment.calculateOfPayment(payment);
+                totalPayment = award + typeOfPayment.calculateOfPayment(payment);
 
             }
         }
@@ -43,34 +44,51 @@ public class Employee {
 
 
         if (offshoreMarker) {
-            this.totalPayment = typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfHours);
-            this.roubleHalf = typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfHours) / 2;
-            this.currencyHalf = (typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfHours) / 2) / 2.5;
+            this.totalPayment = award + typeOfPayment.calculateOfPaymentWithoutTax(payment * countOfHours);
+            this.roubleHalf = totalPayment / 2;
+            this.currencyHalf = (totalPayment / 2) / 2.5;
         } else {
-            this.totalPayment = typeOfPayment.calculateOfPayment(payment * countOfHours);
-            this.roubleHalf = typeOfPayment.calculateOfPayment(payment * countOfHours) / 2;
-            this.currencyHalf = (typeOfPayment.calculateOfPayment(payment * countOfHours) / 2) / 2.5;
+            this.totalPayment = award + typeOfPayment.calculateOfPayment(payment * countOfHours);
+            this.roubleHalf = totalPayment / 2;
+            this.currencyHalf = (totalPayment / 2) / 2.5;
         }
     }
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
 
 
     @Override
     public String toString() {
-                return name + '\'' +
-                ", Такса = " + payment +
-                ", Тип оплаты = " + typeOfPayment +
-                ", Количество рабочих дней = " + countOfWorkingDay +
-                ", Итоговая выплата = " + totalPayment;
+        return name +
+                " Тип оплаты = " + typeOfPayment +
+                ANSI_BLUE + " Такса = " + payment +
+                " За " + countOfWorkingDay + " дней " + ANSI_RESET +
+                " Оффшор = " + offshoreMarker +
+                ANSI_GREEN + " Итоговая выплата = " + totalPayment + ANSI_RESET +
+                " В т.ч. премия = " + award;
     }
 
     public String toStringHourlyMethod() {
-        return name + '\'' +
-                ", Такса = " + payment +
-                ", Тип оплаты =" + typeOfPayment +
-                ", Количество рабочих часов =" + countOfHours +
-                ", Итоговая выплата = " + totalPayment +
-                ", Премия = " + award +
-                ", Часть в рублях = " + roubleHalf +
-                ", Часть в долларах = " + currencyHalf;
+        return name +
+                " Оплата = " + (typeOfPayment) +
+                ANSI_BLUE + " Такса = " + payment +
+                " За " + countOfHours + " часов " + ANSI_RESET +
+                " Оффшор = " + offshoreMarker +
+                ANSI_GREEN + " Итоговая выплата = " + totalPayment + ANSI_RESET +
+                " В т.ч. премия = " + award +
+                ANSI_YELLOW + ", Рубли = " + roubleHalf +
+                " Валюта = " + currencyHalf + ANSI_RESET;
+    }
+
+    public String toStringPieceWorkMethod() {
+        return name +
+                " Тип оплаты = " + typeOfPayment +
+                " Оффшор = " + offshoreMarker +
+                " Такса = " + payment +
+                ANSI_GREEN + " Итоговая выплата = " + totalPayment + ANSI_RESET +
+                " В т.ч. премия = " + award;
     }
 }
