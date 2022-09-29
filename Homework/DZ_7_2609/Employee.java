@@ -13,7 +13,7 @@ public class Employee {
     int countOfChildren;
     boolean offshoreMarker;
 
-    public void getAward() {
+    public void getAward() { // не считает для дней!
         if (offshoreMarker) {
             this.award = 0;
         } else if (countOfHours > 200 | countOfWorkingDay > 9) {
