@@ -71,7 +71,7 @@ public class Main {
 
 
         }
-        System.out.println("Result is " + sum);
+        System.out.println("Result is  " + sum);
 
     }
 }
