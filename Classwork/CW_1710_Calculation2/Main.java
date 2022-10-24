@@ -1,25 +1,48 @@
 package CW_1710_Calculation2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    int[] arrayOfNumbers;
+
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Please input math example with +");
+        Scanner scanner = new Scanner(System.in);
+
         String s = scanner.nextLine();
         char[] result = s.toCharArray();
+
         Main start = new Main();
-        start.getCorrectNumberFromConsole(result);
-        start.getCalculation(s);
+        start.analyzeString(result);
+        start.getArrayOfNumbers(s);
+        start.getCalculation();
     }
 
+    public void getArrayOfNumbers(String s) {
+        String[] tempNumbers = s.split("\\+");
+        arrayOfNumbers = new int[tempNumbers.length];
+        for (int i = 0; i < tempNumbers.length; i++) {
+            arrayOfNumbers[i] = Integer.parseInt(tempNumbers[i]);
+        }
 
-    public void getCorrectNumberFromConsole(char[] result) {
+    }
+
+    public void analyzeString(char[] result) {
         for (int i = 0; i < result.length; i++) {
             switch (result[i]) {
                 case '+':
-                case '1', '2', '3', '4', '5', '6', '7', '8', '9', '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '0':
                     continue;
                 default:
                     throw new IllegalStateException("Unexpected value: " + result[i]);
@@ -27,51 +50,13 @@ public class Main {
         }
     }
 
-    public void getArrayOfNumbers(String s) {
-        int position = 0;
-        while (position < s.length()) {
-            char c = s.charAt(position);
-            switch (c) {
-                case '+':
-                    continue;
-                default:
-                    if (c <= '9' && c >= '0'){
-                        StringBuilder sb = new StringBuilder();
-                        do {
-                            sb.append(c);
-                            position++;
-                            if (position >= s.length()) {
-                                break;
-                            }
-                            c = s.charAt(position);
-                        } while (c <= '9' && c >= '0');
-                        sb.toString();
-
-                    } else {
-                        if (c != ' ') {
-                            throw new RuntimeException("Unexpected character: " + c);
-                        }
-                        position++;
-                    }
-            }
-        }
-    }
-
-    public void getCalculation(String s) {
-
-        int[] array = new int[s.length()];
+    public void getCalculation() {
         int sum = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '+') {
-                continue;
-            } else {
-                array[i] = s.charAt(i) - '0';
-                sum += array[i];
-            }
-
-
+        for (int x : arrayOfNumbers
+        ) {
+            sum += x;
         }
-        System.out.println("Result is  " + sum);
+        System.out.println("Result is " + sum);
 
     }
 }
