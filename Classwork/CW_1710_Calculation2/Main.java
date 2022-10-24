@@ -27,6 +27,36 @@ public class Main {
         }
     }
 
+    public void getArrayOfNumbers(String s) {
+        int position = 0;
+        while (position < s.length()) {
+            char c = s.charAt(position);
+            switch (c) {
+                case '+':
+                    continue;
+                default:
+                    if (c <= '9' && c >= '0'){
+                        StringBuilder sb = new StringBuilder();
+                        do {
+                            sb.append(c);
+                            position++;
+                            if (position >= s.length()) {
+                                break;
+                            }
+                            c = s.charAt(position);
+                        } while (c <= '9' && c >= '0');
+                        sb.toString();
+
+                    } else {
+                        if (c != ' ') {
+                            throw new RuntimeException("Unexpected character: " + c);
+                        }
+                        position++;
+                    }
+            }
+        }
+    }
+
     public void getCalculation(String s) {
 
         int[] array = new int[s.length()];
@@ -41,7 +71,7 @@ public class Main {
 
 
         }
-        System.out.println("Restult is " + sum);
+        System.out.println("Result is " + sum);
 
     }
 }
