@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Main start = new Main();
-        start.getCorrectNumberFromConsole();
-        start.getCalculation();
-    }
-
-
-    public void getCorrectNumberFromConsole() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please input math example with +");
         String s = scanner.nextLine();
         char[] result = s.toCharArray();
+        Main start = new Main();
+        start.getCorrectNumberFromConsole(result);
+        start.getCalculation(s);
+    }
+
+
+    public void getCorrectNumberFromConsole(char[] result) {
         for (int i = 0; i < result.length; i++) {
             switch (result[i]) {
                 case '+':
@@ -27,17 +27,21 @@ public class Main {
         }
     }
 
-    public void getCalculation() {
-        int sum = 0;
-        for (int i = 0; i < result.length; i++) {
+    public void getCalculation(String s) {
 
-            if (result[i] <= '9' && result[i] >= '0') {
-                sum = sum + result[i];
+        int[] array = new int[s.length()];
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '+') {
+                continue;
             } else {
-                i++;
+                array[i] = s.charAt(i) - '0';
+                sum += array[i];
             }
+
+
         }
         System.out.println(sum);
-    }
 
+    }
 }
