@@ -6,5 +6,5 @@ public class MainClass {
         for (int i = 0; i < 11; i++) {
             ConnectionManager.getConnection(i);
         }
-    }
+        ConnectionManager.doSomething();    }
 }

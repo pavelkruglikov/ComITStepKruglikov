@@ -7,17 +7,21 @@ public class ConnectionManager {
 
     private static int connectionsNumber = 0;
 
+    public static void doSomething() {
+        System.out.println("Connection closed");
 
-    public static Connection getConnection(int id){
-        if (connectionsNumber < connections.length){
+    }
+
+
+    public static Connection getConnection(int id) {
+        if (connectionsNumber < connections.length) {
             connections[connectionsNumber] = new Connection(id);
-            System.out.println("Connection added. Number of connections: " + connectionsNumber);
+            System.out.println("Connection added. ID of connections: " + connectionsNumber);
             return connections[connectionsNumber++];
         }
         System.out.println("Returned null");
         return null;
     }
-
 
 
 }
