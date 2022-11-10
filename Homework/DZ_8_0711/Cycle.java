@@ -9,9 +9,6 @@ public class Cycle {
             c.ride();
             System.out.println("wheels = " + c.wheels());
         }
-        Cycle[] cycles1 = new Cycle[]{new Unicycle(),
-                new Bicycle(), new Tricycle()};
-
         }
 
     void ride() {
@@ -26,7 +23,7 @@ public class Cycle {
 class Unicycle extends Cycle {
     @Override
     void ride() {
-        System.out.println("Unicycle.ride()");
+        System.out.println("Unicycle ");
     }
 
     @Override

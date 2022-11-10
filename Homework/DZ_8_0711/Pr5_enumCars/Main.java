@@ -29,7 +29,7 @@ public class Main {
         CarBody[] carBodies = CarBody.values();
         for (CarBody s: carBodies
              ) {
-            System.out.print(s);
+            System.out.println(s);
         }
 
     }}
