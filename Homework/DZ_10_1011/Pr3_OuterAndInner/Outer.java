@@ -4,7 +4,12 @@ package DZ_10_1011.Pr3_OuterAndInner;
         внутренний класс с именем Inner. Добавьте метод во внешний
         который возвращает объект типа Inner. В
         main(), создать и инициализировать ссылку на
-        внутренний. */
+        внутренний.
+2) Изменить Задание 1, чтобы у Outer был private String
+        (инициализируется конструктором),
+        и у Inner есть toString(), который отображает это
+        поле. Создайте объект типа Inner и
+        показать его.*/
 
 public class Outer {
 
@@ -19,7 +24,6 @@ public class Outer {
     }
 
     static class Inner {
-
 
         public void sayHello() {
             System.out.println("Hello from inner class");
